@@ -1,0 +1,31 @@
+.resume {
+  padding-top: 120px;
+  &_title {
+    position: relative;
+    text-align: center;
+    @include before_circle;
+    &:before {
+      top: -6px;
+      left: 39%;
+      transform: translate(-71%);
+    }
+  }
+  .divider {
+    margin-bottom: 30px;
+    padding-left: -75%;
+    padding-right: -25%;
+  }
+  &_line {
+    .resume_text {
+      font-size: 16px;
+      min-height: 200px;
+      width: 750px;
+      line-height: 30px;
+      display: block;
+      margin: 0 auto;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+  }
+}
