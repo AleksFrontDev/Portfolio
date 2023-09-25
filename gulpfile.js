@@ -5,6 +5,7 @@ const cleanCSS = require("gulp-clean-css");
 const autoprefixer = require("gulp-autoprefixer");
 const rename = require("gulp-rename");
 const htmlmin = require("gulp-htmlmin");
+const webpack = require("webpack-stream");
 
 gulp.task("server", function () {
   browserSync({
@@ -25,6 +26,13 @@ gulp.task("styles", function () {
     .pipe(cleanCSS({ compatibility: "ie8" }))
     .pipe(gulp.dest("dist/css"))
     .pipe(browserSync.stream());
+});
+
+gulp.task("scripts", function () {
+  return gulp
+    .src(".")
+    .pipe(webpack(require("./webpack.config")))
+    .pipe(gulp.dest("js/"));
 });
 
 gulp.task("watch", function () {
