@@ -1,18 +1,5 @@
-const hamburger = document.querySelector(".hamburger"),
-  menu = document.querySelector(".menu"),
-  closeElem = document.querySelector(".menu_close");
+import hamburger from "./modules/habmurger";
 
-function openHamb() {
-  hamburger.addEventListener("click", () => {
-    menu.classList.add("active");
-  });
-}
-
-function closeHamb() {
-  closeElem.addEventListener("click", () => {
-    menu.classList.remove("active");
-  });
-}
-
-openHamb();
-closeHamb();
+window.addEventListener("DOMContentLoaded", function () {
+  hamburger();
+});

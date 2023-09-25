@@ -8,7 +8,11 @@
 	},
 	"author": "Aleksandr",
 	"license": "ISC",
+	
 	"devDependencies": {
+		"@babel/cli": "^7.22.15",
+		"@babel/core": "^7.22.20",
+		"@babel/preset-env": "^7.22.20",
 		"browser-sync": "^2.29.3",
 		"gulp-autoprefixer": "^8.0.0",
 		"gulp-clean-css": "^4.3.0",
@@ -16,12 +20,11 @@
 		"gulp-htmlmin": "^5.0.1",
 		"gulp-rename": "^2.0.0",
 		"gulp-sass": "^5.1.0",
-		"sass": "^1.65.1"
+		"sass": "^1.65.1",
+		"webpack-cli": "^5.1.4"
 	},
 	"browserslist": [
-		"last 2 chrome versions",
-		"last 2 firefox versions",
-		"last 2 ios versions"
+		"> 1%"
 	],
 	"dependencies": {
 		"gulp": "^4.0.2"
