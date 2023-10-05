@@ -6,12 +6,14 @@ function hamburger() {
   function openHamb() {
     hamburger.addEventListener("click", () => {
       menu.classList.add("active");
+      console.log("Menu opened");
     });
   }
 
   function closeHamb() {
     closeElem.addEventListener("click", () => {
       menu.classList.remove("active");
+      console.log("Menu closed");
     });
   }
 
