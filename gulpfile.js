@@ -14,12 +14,12 @@ gulp.task("server", function () {
     },
   });
 
-  gulp.watch("src/*.html").on("change", browserSync.reload);
+  gulp.watch("dist/*.html").on("change", browserSync.reload);
 });
 
 gulp.task("styles", function () {
   return gulp
-    .src("src/sass/**/*.+(scss|sass)")
+    .src("src/scss/**/*.+(scss|sass)")
     .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
     .pipe(rename({ suffix: ".min", prefix: "" }))
     .pipe(autoprefixer())
@@ -30,8 +30,8 @@ gulp.task("styles", function () {
 
 gulp.task("watch", function () {
   gulp.watch("src/sass/**/*.+(scss|sass|css)", gulp.parallel("styles"));
-  gulp.watch("src/*.html").on("change", gulp.parallel("html"));
-  gulp.watch("src/js/**/*.js").on("change", gulp.parallel("webpack")); // Изменено на "webpack"
+  gulp.watch("dist/*.html").on("change", gulp.parallel("html"));
+  gulp.watch("src/js/**/*.js").on("change", gulp.parallel("webpack"));
   gulp.watch("src/fonts/**/*").on("all", gulp.parallel("fonts"));
   gulp.watch("src/icons/**/*").on("all", gulp.parallel("icons"));
   gulp.watch("src/img/**/*").on("all", gulp.parallel("images"));
@@ -39,12 +39,11 @@ gulp.task("watch", function () {
 
 gulp.task("html", function () {
   return gulp
-    .src("src/*.html")
+    .src("*.html")
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("dist/"));
 });
 
-// Добавляем новую задачу для запуска Webpack
 gulp.task("webpack", function () {
   return gulp
     .src("src/js/**/*.js")
@@ -79,7 +78,7 @@ gulp.task(
     "watch",
     "server",
     "styles",
-    "webpack", // Добавляем "webpack" здесь
+    "webpack",
     "fonts",
     "icons",
     "html",

@@ -4,7 +4,10 @@ let path = require("path");
 
 module.exports = {
   mode: "production",
-  entry: path.resolve(__dirname, "src", "js", "script.js"),
+  entry: [
+    path.resolve(__dirname, "src", "js", "script.js"),
+    path.resolve(__dirname, "src", "js", "modules", "hamburger.js"),
+  ],
   resolve: {
     extensions: [".ts", ".js"],
   },
